@@ -1,7 +1,8 @@
+import pickle
 from django.shortcuts import render
 from flask import Markup
+from matplotlib.style import context
 from extra.disease import disease_dic
-
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
@@ -18,7 +19,10 @@ import cv2
 import matplotlib.pyplot as plt
 import tensorflow_hub as hub
 from keras.models import load_model
+import sklearn
 
+with open('./saved_model/RandomForest.pkl', 'rb') as f:
+    crop_model = pickle.load(f)
 # Plant leaves classes 38 total
 class_names = ['Apple___Apple_scab',
  'Apple___Black_rot',
@@ -62,6 +66,28 @@ class_names = ['Apple___Apple_scab',
 def index(request):
     return render(request, 'index.html')
 
+def weather_fetch(url):
+    pass
+#Crop Recommendation
+def recommend(value):
+    return
+def crop_predict(request):
+    if request.method == 'POST':
+        N = int(request.POST['nitrogen'])
+        P = int(request.POST['phosphorous'])
+        K = int(request.POST['pottasium'])
+        temperature = float(request.POST['Temperature'])
+        humidity = float(request.POST['humidity'])
+        ph = float(request.POST['ph'])
+        rainfall = float(request.POST['rainfall'])
+        data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
+        my_prediction = crop_model.predict(data)
+        final_prediction = my_prediction[0]
+        context={'final':final_prediction,}
+        return render(request, 'crop-result.html',context=context)
+    return render(request, 'crop.html')
+ 
+
 def crop_recommend(request):
     title = 'Grow Smart: Crop Recommendation'
     return render(request, 'crop.html')
@@ -69,7 +95,7 @@ def crop_recommend(request):
 
 # Plant Disease detection sector
 def predict_image(url):
-    model = load_model(r'D:\Growsmart-master\saved model\detect_using_cnn.h5')
+    model = load_model(r'.\saved_model\detect_using_cnn.h5')
     path = url
     image = cv2.imread(path)
     image = np.array(
@@ -101,6 +127,7 @@ def disease_detect(request):
         print(img)
         prediction = predict_image(img)
         prediction = Markup(str(disease_dic[prediction]))
-        context={'prediction' : prediction}
+        context={'prediction' : prediction,
+                'MOD':img}
         return render(request, 'disease-result.html', context)
     return render(request,'disease.html')

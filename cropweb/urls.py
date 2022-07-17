@@ -6,7 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('recommend', views.crop_recommend, name='recommend'),
+    path('recommend', views.crop_predict, name='recommend'),
     path('detect', views.disease_detect, name='detect'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

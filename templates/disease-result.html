@@ -1,12 +1,30 @@
-
 {% extends 'layout.html' %} {% block body %}
+{% load static %}
 
-
-<div class="container py-2 mx-auto my-50 h-10 " style="margin: 9rem;">
+<div class="container">
   <div class="row">
-      <div class="col-sm py-2 py-md-3">
-          <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
-            <p class="text-center" style="color: black; font-size: 22px;">{{ prediction }}</p>
+      <div class="col-lg-6 mb-4">
+          <div class="card">
+              <img class="card-img-top" src="" alt="">
+
+              <div class="card-body ">
+                  <h3 class="card-title text-center"><b><u>Details</u></b> </h3>
+                  <p class="card-text">
+                      <p class="text-center" style="color: black; font-size: 22px;">{{ prediction }}</p>
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+          <div class="card">
+              <img class="card-img-top" src="" alt="">
+
+              <div class="card-body">
+                  <h3 class="card-title text-center"><b><u>Image</u></b></h3>
+                  <p class="card-text">
+                      <img src="{{MOD}}" alt="">
+                  </p>
+              </div>
           </div>
       </div>
   </div>

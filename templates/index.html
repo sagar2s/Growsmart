@@ -1,9 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-
-
-
 {% block body %}
 <!-- banner -->
 <section class="banner_w3lspvt" id="home">
@@ -57,42 +54,46 @@
 <section class="blog py-5">
 	<div class="container py-md-5">
 		<h3 class="heading mb-sm-5 mb-4 text-center"> Our Services</h3>
-		<div class="row blog-grids">
-			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">
-				<img src="{% static './images/recommend.jpg' %}" class="img-fluid" alt="" />
-				<a href="">
-					<div class="blog-info">
-
-						<h4>Crop Recommendation</h4>
-
-						<p class="mt-2"> Recommendation about the type of crops to be cultivated which is best suited
-							for the respective conditions</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-md-6 blog-middle mb-lg-0 mb-sm-5 pb-lg-0 pb-md-5">
-				<img src="{% static './images/fertilizer  - Copy.jpg' %}" class="img-fluid" alt="" />
-				<a href="">
-					<div class="blog-info">
-						<h4>Store</h4>
-						<p class="mt-2">Purchase your product here. We provide all range of fertilizer and much more.
-						</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
-
-				<img src="{% static './images/detect.jpg' %}" class="img-fluid" alt="">
-
-				<!-- <img src="images/s4.jpg" class="img-fliud" alt="" /> -->
-				<a href="">
-					<div class="blog-info">
-						<h4>Disease Detection</h4>
-						<p class="mt-2">Predicting the name and causes of crop disease and suggestions to cure it</p>
-					</div>
-				</a>
-			</div>
-		</div>
+		<div class="cards-5 section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <a href="{% url 'recommend'%}"> <img class="img" src="/static/images/recommend.jpg"> </a>
+                            </div>
+                            <div class="table">
+                                 <h4 class="card-caption">Crop Recomendation</h4>
+                                <p class="card-description">Recommendation about the type of crops to be cultivated which is best suited for the respective conditions</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <a href="https://www.daraz.com.np/catalog/?spm=a2a0e.11779170.search.1.287d2d2bXaw3aP&q=fertilizer&_keyori=ss&clickTrackInfo=textId--6989391574542343984__abId--235496__pvid--b5c82f7f-5964-4584-a3a5-203cd3986d55__matchType--1__srcQuery--fertilizer__spellQuery--fertilizer&from=suggest_normal&sugg=fertilizer_0_1"> <img class="img" src="/static/images/fertilizer  - Copy.jpg"> </a>
+                            </div>
+                            <div class="table">
+                                <h4 class="card-caption">Store</h4>
+                                <p class="card-description"> Purchase your product here. We provide all range of fertilizer and much more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <a href="{% url 'detect' %}"> <img class="img" src="/static/images/detect.png"> </a>
+                            </div>
+                            <div class="table">
+                                <h4 class="card-caption">Disease Detection</h4>
+                                <p class="card-description"> Predicting the name and causes of crop disease and suggestions to cure it</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </section>
 <!-- //Products & Services -->

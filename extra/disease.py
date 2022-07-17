@@ -321,14 +321,14 @@ disease_dic = {
         <br/>4. If susceptible varieties are growing in an area where powdery mildew has resulted in yield loss in the past, fungicide may be necessary.""",
 
 
-    'Strawberry___Leaf_scorch': """ <b>Crop</b>: Strawberry <br/>Disease: Leaf Scorch<br/>
+    'Strawberry___Leaf_scorch': """<strong>Crop</strong>: Strawberry <br/> <strong>Disease</strong>: Leaf Scorch<br/>
         <br/> Cause of disease:
 
-        <br/><br/> 1. Scorched strawberry leaves are caused by a fungal infection which affects the foliage of strawberry plantings. The fungus responsible is called Diplocarpon earliana.
+        <br/>1. Scorched strawberry leaves are caused by a fungal infection which affects the foliage of strawberry plantings. The fungus responsible is called Diplocarpon earliana.
 
         <br/> 2. Strawberries with leaf scorch may first show signs of issue with the development of small purplish blemishes that occur on the topside of leaves.
 
-        <br/><br/> How to prevent/cure the disease <br/>
+        <br><br/><storng><u> How to prevent/cure the disease </strong></u>
         <br/>1. Since this fungal pathogen over winters on the fallen leaves of infect plants, proper garden sanitation is key.
 
         <br/>2. This includes the removal of infected garden debris from the strawberry patch, as well as the frequent establishment of new strawberry transplants.
