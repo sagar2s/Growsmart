@@ -6,18 +6,17 @@
 
     html body {
       background-color: rgb(206, 206, 228);
-
-      
-  }
+      {% comment %} background-image: {% url 'images/3.png' %} {% endcomment %}
+    }
 
   
 </style>
 <!--Form Section-->
 <br/><br />
-<h2 style="text-align: center; margin: 0px; color: black">
-  <b>Find out the most suitable crop to grow in your farm</b>
+<h2 style="text-align: center; margin: 0px; color: rgb(13, 142, 8) ; font-weight:Bold">
+  <strong>Find out the most suitable crop you can grow....</strong>
 </h2>
-<br />
+
 
 <div
   style="
@@ -33,7 +32,7 @@
   <form method="POST" enctype=multipart/form-data>
     {% csrf_token %}
     <div class="form-group">
-      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+      <label for="Nitrogen" style="font-size: 17px; color: green;"><b>Nitrogen</b></label>
       <input
         type="number"
         class="form-control"
@@ -45,7 +44,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="Phosphorous" style="font-size: 17px"
+      <label for="Phosphorous" style="font-size: 17px; color: green;"
         ><b>Phosphorous</b></label
       >
       <input
@@ -60,7 +59,7 @@
     </div>
 
     <div class="form-group">
-      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+      <label for="Pottasium" style="font-size: 17px; color: green;"><b>Pottasium</b></label>
       <input
         type="number"
         class="form-control"
@@ -74,7 +73,7 @@
   
 
     <div class="form-group">
-      <label for="Temperature" style="font-size: 17px"><b>Temperature (in celsius)</b></label>
+      <label for="Temperature" style="font-size: 17px; color: green;"><b>Temperature (in celsius)</b></label>
       <input
         type="number"
         step="0.01"
@@ -87,7 +86,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="Humidity" style="font-size: 17px"><b>Humidity</b></label>
+      <label for="Humidity" style="font-size: 17px; color: green;"><b>Humidity</b></label>
       <input
         type="number"
         step="0.01"
@@ -100,20 +99,20 @@
       />
     </div>
     <div class="form-group">
-      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+      <label for="ph" style="font-size: 17px; color: green;"><b>Ph level</b></label>
       <input
         type="number"
         step="0.01"
         class="form-control"
         id="ph"
         name="ph"
-        placeholder="Enter the value"
+        placeholder="Enter the value like 5.5" 
         style="font-weight: bold"
         required
       />
     </div>
     <div class="form-group">
-      <label for="Rainfall" style="font-size: 17px"><b>Rainfall (in mm)</b></label>
+      <label for="Rainfall" style="font-size: 17px; color: green;"><b>Rainfall (in_mm)</b></label>
       <input
         type="number"
         step="0.01"
@@ -126,19 +125,15 @@
       />
     </div>
   </div>
-   <div class="d-flex justify-content-center"> 
+<div class="d-flex justify-content-center"> 
       <button
         type="submit"
         class="btn btn-info"
-        style="color: black; font-weight: bold; width: 229px; height:50px; border-radius:56px; font-size: 21px; margin-bottom: 60px;"
-      >
-        Recommend the Crop
+        style="color: rgb(0, 0, 0); font-weight: bold; width: 229px; height:50px; border-radius:56px; font-size: 21px; margin-bottom: 60px;">Recommend the Crop
       </button>
-    </div>
-  </form>
 </div>
 
-
+</form>
 
 <!-- Form section -->
 
