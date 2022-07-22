@@ -74,6 +74,7 @@ def recommend(value):
 def crop_predict(request):
     if request.method == 'POST':
         N = int(request.POST['nitrogen'])
+        print(N)
         P = int(request.POST['phosphorous'])
         K = int(request.POST['pottasium'])
         temperature = float(request.POST['Temperature'])
@@ -85,14 +86,18 @@ def crop_predict(request):
         final_prediction = my_prediction[0]
         context={'final':final_prediction,}
         return render(request, 'crop-result.html',context=context)
+
     return render(request, 'crop.html')
  
 
+
 def crop_recommend(request):
     title = 'Grow Smart: Crop Recommendation'
-    return render(request, 'crop.html')
+    return render(request, 'crop_recom.html')
 
-
+def geo_coming(request):
+    title = 'Coming soon'
+    return render(request, 'coming_soon.html')
 # Plant Disease detection sector
 def predict_image(url):
     model = load_model(r'.\saved_model\detect_using_cnn.h5')
@@ -116,9 +121,9 @@ def predict_image(url):
 def disease_detect(request):
     title="Grow Smart: Disease Detection"
     if request.method == 'POST':
-        if 'file' not in request.FILES:
+        if 'image' not in request.FILES:
             return HttpResponseRedirect(request.path_info)
-        file = request.FILES['file']
+        file = request.FILES['image']
         print(file)
         fs = FileSystemStorage()
         a = fs.save(file.name,file)
