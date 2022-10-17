@@ -123,7 +123,7 @@ def predict_image(url):
     confidence = round(100 * (np.max(predictions[0])), 2)
     print("class:", predicted_class)
     print("confidence:", confidence)
-    return predicted_class
+    return predictions
 def disease_detect(request):
     title="Grow Smart: Disease Detection"
     if request.method == 'POST':
@@ -135,11 +135,20 @@ def disease_detect(request):
         a = fs.save(file.name,file)
         path=fs.url(a)
         img='.'+path
-        print(img)
-        prediction = predict_image(img)
-        prediction = Markup(str(disease_dic[prediction]))
+        pred = predict_image(img)
+        predc=np.argmax(pred[0])
+        print(predc)
+        predicted_class = class_names[np.argmax(pred[0])]
+        print(predicted_class)
+        prediction = Markup(str(disease_dic[predicted_class])) 
+        supplement_name = supplement_info['supplement name'][predc]
+        supplement_image_url = supplement_info['supplement image'][predc]
+        supplement_buy_link = supplement_info['buy link'][predc]
         context={'prediction' : prediction,
-                'MOD':img}
+                'MOD':img,
+                'supplement_name': supplement_name,
+                'supplement_image_url': supplement_image_url,
+                'supplement_buy_link': supplement_buy_link}
         return render(request, 'disease-result.html', context)
     return render(request,'disease.html')
 def fertstore(request):
