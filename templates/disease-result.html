@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} {% block body %}
+{% load static %}
+<style>
+    .row{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-around;
+    align-items: flex-start;
+    }
+</style>
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6 mb-4">
+          <div class="card">
+              <div class="card-body ">
+                  <h2 class="card-title text-center"><b><u>*...Details...*</u></b> </h2>
+                  <p class="card-text">
+                      <p class="text-left" style="color: black; font-size: 22px;">{{ prediction }}</p>
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+          <div class="card">
+              <div class="card-body">
+                  <h2 class="card-title text-center"><b><u>*...Image...*</u></b></h2>
+                  <p class="card-text">
+                      <img src="{{MOD}}" alt="">
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

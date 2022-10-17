@@ -1,0 +1,103 @@
+{% extends 'layout.html' %} {% block body %}
+{%load static%}
+
+<style>
+  html body {
+    background-color: rgb(206, 206, 228);
+  }
+</style>
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: black;">
+  <strong>Find out which disease has been caught by your plant</strong>
+</h2>
+<br/>
+<br>
+
+<div class="container">
+  <!-- For demo purpose -->
+
+  <!-- End -->
+  <div class="row ">
+    <div class="col mx-auto">
+      <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+        <h4 style="color: black;"><strong>Why is it necessary to detect disease in plant ?</strong></h4>
+        <p style="color: black; line-height: normal; margin-top: 10px; letter-spacing: normal; text-align: justify text-justify: inter-word;">Plant diseases affect the growth of their respective species. In addition, some research gaps are identified from which to obtain greater transparency for detecting diseases in plants, even before their symptoms appear clearly. diagnosis is one of the most important aspects of a plant pathologist's training. Without proper identification of the disease and the disease-causing agent, disease control measures can be a waste of time and money and can lead to further plant losses. Proper disease diagnosis is necessary.
+        </p>
+      </div>
+    </div>
+    <div class="col mx-auto">
+      <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;"><img src="{% static 'images/3.jpg' %}"
+          class="d-block mx-auto mb-4 rounded-pill">
+
+        <!-- Default bootstrap file upload-->
+
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="custom-file overflow-hidden mb-4">
+            <input type="file" id="actual-btn" hidden name="image">
+            <label for="actual-btn" style="
+                            
+                              background-color: rgb(2, 46, 15);
+                              color: white;
+                              padding: 0.5px;
+                              font-family: sans-serif;
+                              border-radius: 3px;
+                              cursor: pointer;
+                              margin-top: 1px;">Choose File</label>
+
+            <span id="file-chosen" style="
+    margin-left: 0.3px;
+            font-family: sans-serif;">No file chosen</span>
+          </div>
+
+          <!-- End -->
+
+          <h6 class="text-center mb-4 text-muted"><b>
+              Simply upload your plant's leaf image and then see the magic of AI.
+            </b>
+          </h6>
+
+          <!-- Custom bootstrap upload file-->
+          <center>
+            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Submit</button></a>
+          </center>
+        </form>
+        <!-- End -->
+
+      </div>
+    </div>
+    <div class="col mx-auto">
+      <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; width: fit-content;">
+        <h5><strong>Prevent Plant Disease follow below steps:</strong></h5>
+        <ol type="1" style="
+                    display: block;
+                    font-weight: 700;
+                    margin-top: 10px;
+                    list-style-type: decimal;
+                    ">
+          <li>Follow Good Sanitation Practices.</li>
+          <li>Fertilize to Keep Your Plants Healthy.</li>
+          <li>Inspect Plants for Diseases Before You Bring Them Home.</li>
+          <li>Allow the Soil to Warm Before Planting.</li>
+          <li>Ensure a Healthy Vegetable Garden By Rotating Crops.</li>
+          <li>Provide Good Air Circulation</li>
+          <li>Remove Diseased Stems and Foliage</li>
+        </ol>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const actualBtn = document.getElementById('actual-btn');
+
+  const fileChosen = document.getElementById('file-chosen');
+
+  actualBtn.addEventListener('change', function () {
+    fileChosen.textContent = this.files[0].name
+  })
+</script>
+
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %} {% block body %}
+{%load static%}
+
+<style>
+
+    html body {
+      background-color: rgb(174, 227, 176);
+    }  
+</style>
+<div class="container">
+    <div class="row" style="padding-bottom: 15rem;
+    padding-top: 8rem;">
+        <div class="col-lg-6 mb-4">
+            <div class="card" style="background-color: rgb(218, 243, 218);">
+                <div class="card-body ">
+                <a href="{% url 'coming'%}"><h2 class="text-center card-title" href="{% url 'coming'%}" style="font-family:system-ui;"><b>Geolocation</b> </h2>
+                
+                    <p class="text-center" style ="color: rgb(69, 153, 186); font-size: large;">
+                        We will be adding feature where Crops can be recommended to the user by System according to Geolocation.....
+                    </p>
+                </a> 
+                    <p class="card-text">
+                        <p class="text-center" style="color: black; font-size: 22px;">{{ prediction }}</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card" style="background-color: rgb(218, 243, 218);">
+                <div class="card-body">
+                <a href="{% url 'recomdata' %}"><h2 class="card-title text-center" href="{% url 'recomdata'%}"  style="font-family:system-ui;"><b>NPK</b></h2>
+                    <p class="text-center" style ="color: rgb(69, 153, 186); font-size: large;">
+                        If you've required data such as Nitrogen, phosphorus, potassium, humidity and other Parameters then you can directly click on this.....
+                    </p>
+                </a> 
+                    <p class="card-text">
+                        {% comment %} <img src="{{MOD}}" alt=""> {% endcomment %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+{% endblock %}
